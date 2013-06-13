@@ -5,7 +5,7 @@ class HomeController < ApplicationController
 
   def index
 	  @micropost = Micropost.new
-	  @microposts = Micropost.all
+	  @microposts = Micropost.page(params[:page]).per_page(10)
   end
 
   def show

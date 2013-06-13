@@ -1,0 +1,12 @@
+<div class="feed">
+	<%= gravatar_for micropost.user, "pull-left", size: 80 %>
+	<div style="margin-left:90px">
+		<span class="label label-info"> <%= micropost.user.email %> </span> &nbsp; <span style="text-decoration:underline"> <%= time_ago_in_words(micropost.created_at) %> ago </span> &nbsp; 
+		<% if can? :destroy, micropost %>
+			<%= link_to "Delete", micropost, method: :delete, style:"color:red", confirm:"Delete this tweet?" %>
+		<% end %>
+		<br />
+		<p style="text-align: justify"> <%= micropost.content %> </p>
+	</div>
+	<div class="clearfix"></div>
+</div>

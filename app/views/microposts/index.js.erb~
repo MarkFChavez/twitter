@@ -1,0 +1,3 @@
+
+$("#feed-content").append('<%= j render(@microposts) %>');
+$('.pagination').replaceWith('<%= j will_paginate(@microposts) %>');
