@@ -45,6 +45,7 @@
 			<div id="feed-content">
 				<%= render @microposts %>
 
+				<%= will_paginate @microposts %>
 			</div>
 		</div>
 	</div>
