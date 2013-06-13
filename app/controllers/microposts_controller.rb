@@ -13,5 +13,9 @@ class MicropostsController < ApplicationController
   end
 
   def destroy
+	  @micropost = current_user.microposts.find(params[:id])
+	  @micropost.destroy
+
+	  redirect_to home_index_path, notice: "tweet deleted."
   end
 end
