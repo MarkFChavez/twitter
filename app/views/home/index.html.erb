@@ -8,7 +8,9 @@
 			<div>
 				<span class="left10"> <%= current_user.email %> </span> <br />
 				<span class="left10"> <%= link_to "change avatar", "http://gravatar.com/email", target: "_blank" %> <br />
-				<span class="left10"> <%= link_to "logout", destroy_user_session_path, method: :delete %> </span>
+					<span class="left10"> <%= link_to "logout", destroy_user_session_path, method: :delete %> </span> <br /> <br />
+					<span class="left10 lead"> <%= pluralize current_user.microposts.count, "micropost" %> </span>	
+
 			</div>
 			<div class="clearfix"></div>
 		</div>
@@ -17,7 +19,7 @@
 			<div class="row-fluid">
 				<div class="span12">
 					<%= form_for(@micropost) do |f| %>
-						<%= f.text_field :content, placeholder:"#your tweet" %> <br /> <%= f.submit "Tweet", class: "btn" %>
+						<%= f.text_field :content, placeholder:"#your tweet", required:"required" %> <br /> <%= f.submit "Tweet", class: "btn" %>
 					<% end %>
 				</div>
 			</div>
@@ -53,6 +55,8 @@
 							<div class="clearfix"></div>
 						</div>
 					<% end %>
+				<% else %>
+					<p> No tweets yet. </p>
 				<% end %>
 			</div>
 		</div>
