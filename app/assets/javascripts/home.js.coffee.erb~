@@ -8,7 +8,7 @@ jQuery ->
 			url = $('.pagination .next_page').attr('href')
 
 			if url && ($(window).scrollTop() > $(document).height() - $(window).height() - 50)
-				$('.pagination').text('Fetching more microposts...')
+			$('.pagination').html('<%= image_tag "ajax-loader.gif" %> Fetching more microposts...')
 				$.getScript(url)
 	end
 
