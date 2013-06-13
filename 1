@@ -1,0 +1,57 @@
+
+<%= title "Home" %>
+
+<div class="row-fluid">
+	<div class="span4">
+		<div class="top10 padding10" style="border:1px solid #CCC">
+			<%= gravatar_for current_user, "pull-left", { size: 120 } %>
+			<div>
+				<span class="left10"> <%= current_user.email %> </span> <br />
+				<span class="left10"> <%= link_to "change avatar", "http://gravatar.com/email", target: "_blank" %> <br />
+				<span class="left10"> <%= link_to "logout", destroy_user_session_path, method: :delete %> </span>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+
+		<div class="top10 padding10" style="border:1px solid #CCC">
+			<div class="row-fluid">
+				<div class="span12">
+					<%= form_for(@micropost) do |f| %>
+						<%= f.text_field :content %> <br /> <%= f.submit "Tweet", class: "btn" %>
+					<% end %>
+				</div>
+			</div>
+
+			<div class="row-fluid">
+				<div class="span6">
+					<span style="font-weight:bold">followers</span>
+				</div>
+
+				<div class="span6">
+					<span style="font-weight:bold">following</span>
+				</div>	
+			</div>
+		</div>
+ 	</div>
+
+	<div class="span8">
+		<div class="padding10 top10" style="border:1px solid #CCC">
+			<div id="feed-header">
+				<p class="lead" style="text-align:center"> News Feed </p>
+			</div>
+
+			<div id="feed-content">
+				<div class="feed">
+					<%= gravatar_for current_user, "pull-left", size: 80 %>
+					<div style="margin-left:90px">
+						<span class="label label-info"> <%= current_user.email %> </span>
+						<br />
+						<p style="text-align: justify"> Lorem ipsum dolor, ejsutis kliosth lasjf jlkjgs lkjsg lkja;lkf lkjgdskj glkejs kjgslk jsre;kgj lkjsrglkj slrkjg slkj sldgfslkghsrlgjslgshlg ls ghlshg slrjhg slkrg slrkgjhsljrghskrghakdhg dkrgh dkrjshg dskhg sdlhg  </p>
+					</div>
+					<div class="clearfix"></div>
+				</div>	
+			</div>
+		</div>
+	</div>
+</div>
+

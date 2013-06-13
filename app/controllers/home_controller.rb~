@@ -1,0 +1,13 @@
+class HomeController < ApplicationController
+
+  before_filter :authenticate_user!
+  layout "user"
+
+  def index
+	  @micropost = Micropost.new
+	  @microposts = current_user.microposts
+  end
+
+  def show
+  end
+end
